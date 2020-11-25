@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes/routes');
-const cors = requiere('cors');
+const cors = require('cors');
 const programas = require('./routes/programas');
 const denuncia = require('./routes/denuncia');
 
+//importante para conexion del front con el back
+//Uso de cors
+app.use(cors({origin: '*'}));
+// conectar con el link de su frontend app.use(cors({origin: '*'}))
 
 // Ajustes
-app.set('port',3000);
+app.set('port',process.env.PORT || 3001);
 app.set('json spaces',2);
 require ('dotenv').config
 
